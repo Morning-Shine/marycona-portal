@@ -8,20 +8,20 @@ const MoviesCont: React.FC = (props) => {
   const params = new URLSearchParams(
     QUERY_SELECT_FIELDS.map((param) => ['selectFields', param])
   );
-  params.append('notNullFields', 'poster.url');
+  // params.append('notNullFields', 'poster.url');
 
   const { data, isFetching } = useGetMoviesQuery(params.toString());
   //   console.log('+', params);
 
   return (
-    <div>
-      {/* {!!data?.moviesList?.length &&
+    <div className='w-5/6 mx-auto mt-5 grid gap-5 grid-cols-grid-cards'>
+      {!!data?.moviesList?.length &&
         data.moviesList.map((m) => (
           <MovieCard
             key={m.id}
             movieInfo={m}
           />
-        ))} */}
+        ))}
     </div>
   );
 };

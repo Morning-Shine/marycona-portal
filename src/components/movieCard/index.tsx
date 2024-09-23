@@ -1,20 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TMovieCard } from './type';
+import LabelRating from 'components/labelRating';
+import { ENUMS } from 'constants/enums';
+import PosterFoo from 'components/posterFoo';
+import Like from 'components/like';
 
 const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
-  const { id, name, posterUrl, rating, year } = movieInfo;
-  // console.log(`url(${posterUrl})`);
+  const { id, name, posterUrl, rating, year, countries } = movieInfo;
+  const [isHovering, setIsHovering] = useState(false);
+
+  const hoverHandlerOver = () => setIsHovering(true);
+  const hoverHandlerOut = () => setIsHovering(false);
+
+  const poster = posterUrl
+    ? {
+        backgroundImage: `url(${posterUrl})`,
+        backgroundSize: 'cover',
+      }
+    : {
+        backgroundImage: 'linear-gradient(to bottom, #f59e0b 40%, #84cc16)',
+      };
 
   return (
-    // <div
-    //   className={`border-blue-600 border `}
-    // >
-    // <div className={`border-red-600 border`}>
-    <>
-      <h3>{name}</h3>
-      <p>{year}</p>
-    </>
-    // </div>
+    <div
+      className="cursor-pointer"
+      onMouseOver={hoverHandlerOver}
+      onMouseOut={hoverHandlerOut}
+    >
+      {/* TODO  обработка нажатия лайка*/}
+      <div
+        style={poster}
+        className="w-40 h-60 relative rounded bg-gradient-to-b from-orange-500 to-lime-500"
+        >
+        {isHovering && <Like isLiked />}
+        {!posterUrl && <PosterFoo />}
+        <div className="absolute right-1 top-2/3">
+          <LabelRating rating={rating} />
+        </div>
+      </div>
+      <h3 className="font-bold text-sm">{name}</h3>
+      <p>
+        {countries?.map((c) => `${c.name}, `)}
+        <span className="text-md">{!!year ? year : ENUMS.noYear}</span>
+      </p>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import MoviesCont from './components/moviesCont';
 
 
 const PageMain: React.FC = () => {
-  return <section>PageMain
+  return <section>
     <MoviesCont/>
   </section>;
 };

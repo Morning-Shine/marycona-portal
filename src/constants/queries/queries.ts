@@ -5,5 +5,6 @@ export const QUERY_SELECT_FIELDS = [
     'poster',
     'rating',
     'year',
+    'countries'
   ];
   

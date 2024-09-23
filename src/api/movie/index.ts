@@ -19,6 +19,7 @@ export const movieApi = api.injectEndpoints({
             posterUrl: m.poster?.url || null,
             rating: m.rating.imdb,
             year: m.year,
+            countries: m.countries
           });
         }
         return {

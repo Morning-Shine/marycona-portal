@@ -16,6 +16,7 @@ type TMoviesResponse = {
     russianFilmCritics: number;
   };
   year: number;
+  countries: { name: string }[];
 };
 
 export type TMoviesResponseData = {
