@@ -11,22 +11,21 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
+import pageSizesSlice from './pageSizesSlice';
 
 
 const persistConfig = {
-    key: 'marycona-portal',
-    version: 1,
-    storage,
-    // whitelist: ['theme', 'pageSizes', 'users'],
-  };
-  const rootReducer = combineReducers({
-    [api.reducerPath]: api.reducer,
-    // theme: themeSlice,
-  });
+  key: 'marycona-portal',
+  version: 1,
+  storage,
+  // whitelist: ['pageSizes'/*, 'theme'*/],
+};
+
+const rootReducer = combineReducers({
+  [api.reducerPath]: api.reducer,
+  pageSizes: pageSizesSlice,
+});
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -37,3 +36,7 @@ export const store = configureStore({
       },
     }).concat(api.middleware),
 });
+
+// export const persistor = persistStore(store);
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
