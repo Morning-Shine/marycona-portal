@@ -12,7 +12,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import pageSizesSlice from './pageSizesSlice';
-
+import themeSlice from './themeSlice';
 
 const persistConfig = {
   key: 'marycona-portal',
@@ -24,6 +24,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   [api.reducerPath]: api.reducer,
   pageSizes: pageSizesSlice,
+  theme: themeSlice,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

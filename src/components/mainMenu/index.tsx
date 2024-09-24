@@ -3,9 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { STATIC_ROUTES } from 'constants/routes/routes';
 // import classNames from 'classnames';
 import { TRouteStatic } from 'constants/routes/type.routes.constants';
+import ThemeSwitcher from 'components/themeSwitcher';
 
 const MainMenu: React.FC = (props) => {
-//   const { pathname } = useLocation();
+  //   const { pathname } = useLocation();
   return (
     <nav
       className="flex justify-between w-2/3"
@@ -35,6 +36,7 @@ const MainMenu: React.FC = (props) => {
           // )
         )}
       </div>
+      <ThemeSwitcher />
       <div className="flex items-center gap-5 p-5">
         <p>войти</p>
         <p>авторизация</p>

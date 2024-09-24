@@ -7,9 +7,10 @@ import Pagination from 'components/pagination';
 import { useAppSelector } from 'utils/hooks/useRedux';
 
 const MoviesCont: React.FC = (props) => {
-  const pageNumber = useAppSelector((state) => state.pageSizes.mainPageNumber.toString());
-  // const pageSize = useAppSelector((state) => state.pageSizes.mainPageSize.toString());
-
+  const pageNumber = useAppSelector((state) =>
+    state.pageSizes.mainPageNumber.toString()
+  );
+  // TODO поправить отображение пагинации, чтобы не скакало
 
   const params = new URLSearchParams(
     QUERY_SELECT_FIELDS.map((param) => ['selectFields', param])
@@ -20,11 +21,10 @@ const MoviesCont: React.FC = (props) => {
   const { data, isFetching } = useGetMoviesQuery(params.toString());
   //   console.log('+', params);
 
-  
   return (
     <>
       {!!data?.moviesList?.length && (
-        <div className='w-5/6 mx-auto mt-5 '>
+        <div className="w-5/6 mx-auto mt-5 ">
           <div className="grid gap-5 grid-cols-grid-cards">
             {data.moviesList.map((m) => (
               <MovieCard
