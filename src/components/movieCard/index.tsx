@@ -17,9 +17,7 @@ const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
         backgroundImage: `url(${posterUrl})`,
         backgroundSize: 'cover',
       }
-    : {
-        backgroundImage: 'linear-gradient(to bottom, #f59e0b 40%, #84cc16)',
-      };
+    : {};
 
   return (
     <div
@@ -30,8 +28,9 @@ const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
       {/* TODO  обработка нажатия лайка*/}
       <div
         style={poster}
-        className="w-40 h-60 relative rounded bg-gradient-to-b from-orange-500 to-lime-500"
-        >
+        className={`w-40 h-60 relative rounded bg-gradient-to-b
+           from-amber-500 to-lime-500 dark:from-amber-600 dark:to-lime-600`}
+      >
         {isHovering && <Like isLiked />}
         {!posterUrl && <PosterFoo />}
         <div className="absolute right-1 top-2/3">

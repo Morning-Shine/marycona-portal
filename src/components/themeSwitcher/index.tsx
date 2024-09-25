@@ -9,18 +9,19 @@ const ThemeSwitcher: React.FC = (props) => {
 
   return (
     <div
-      className="w-16 h-16 rounded-full"
+      className={`w-16 h-16 rounded-full flex justify-center vertical-align
+       p-1 cursor-pointer bg-amber-500 dark:bg-amber-600`}
       onClick={() => onModeChange(isDarkMode ? 'light' : 'dark')}
     >
       {isDarkMode ? (
         <img
-          src={moon}
-          alt="moon theme mode"
+          src={sun}
+          alt="sun theme mode"
         />
       ) : (
         <img
-          src={sun}
-          alt="sun theme mode"
+          src={moon}
+          alt="moon theme mode"
         />
       )}
     </div>

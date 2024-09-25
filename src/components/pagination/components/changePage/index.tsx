@@ -40,7 +40,7 @@ const ChangePage: React.FC<TPaginationComponents> = ({
       <p
         className={`h-10 rounded-full max-w-min
         flex items-center text-xl
-        bg-lime-300 `}
+        bg-lime-300 dark:bg-lime-700`}
       >
         <input
           type="number"
@@ -55,12 +55,12 @@ const ChangePage: React.FC<TPaginationComponents> = ({
           onClick={() => handlePageChange()}
           className={`${
             !currentPageNumber ? 'cursor-not-allowed' : 'cursor-pointer'
-          } pr-2 text-lime-900`}
+          } pr-2 font-bold text-lime-900 dark:text-lime-200`}
         >
           &#10003;
         </span>
       </p>
-      <p className="text-xs self-center text-amber-950">максимум {pages}</p>
+      <p className="text-xs self-center text-amber-950 dark:text-amber-600">максимум {pages}</p>
     </div>
   );
 };

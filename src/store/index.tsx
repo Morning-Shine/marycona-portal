@@ -18,7 +18,7 @@ const persistConfig = {
   key: 'marycona-portal',
   version: 1,
   storage,
-  // whitelist: ['pageSizes'/*, 'theme'*/],
+  whitelist: ['theme'],/*'pageSizes',*/ 
 };
 
 const rootReducer = combineReducers({
@@ -38,6 +38,6 @@ export const store = configureStore({
     }).concat(api.middleware),
 });
 
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

@@ -7,17 +7,14 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        transparent: colors.transparent,
-        white: colors.white,
-        green: colors.green,
-        yellow: colors.yellow,
-        red: colors.red,
-        gray: colors.gray,
-        // black: colors.black,
-        // neutral: colors.neutral,
-        // orange: colors.orange,
-      },
+      // colors: {
+      //   transparent: colors.transparent,
+      //   white: colors.white,
+      //   green: colors.green,
+      //   yellow: colors.yellow,
+      //   red: colors.red,
+      //   gray: colors.gray,
+      // },
       gridTemplateColumns: {
         'grid-cards': 'repeat( auto-fit, minmax(10rem, 1fr))',
       },

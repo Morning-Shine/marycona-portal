@@ -19,18 +19,10 @@ const MainMenu: React.FC = (props) => {
             <Link
               key={route.path}
               to={route.path}
-              className={
-                'underline px-5 cursor-pointer flex'
-                //   classNames(
-                //   'underline md:px-5',
-                //   route.path === pathname
-                //     ? `text-${COLOR_MAIN}-300 dark:text-${COLOR_MAIN}-400`
-                //     : `text-${COLOR_CONTRAST}-50 dark:text-${COLOR_CONTRAST}-300`
-                // )
-              }
+              className="underline px-5 cursor-pointer flex items-end"
             >
               {!!route.img && <div className="w-9 h-9 mr-2">{route.img}</div>}
-              <p>{route.name}</p>
+              <p className="">{route.name}</p>
             </Link>
           )
           // )
