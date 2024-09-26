@@ -1,20 +1,20 @@
 import { Suspense, lazy } from 'react';
-import PageMain from 'pages/main';
-import PageFavorite from 'pages/favorite';
 import { TRouteStatic, TRouteDymanic } from './type.routes.constants';
-// import LoadingPage from 'components/loadingPage';
 
-// const PageAuthorization = lazy(() => import('pages/authorization'));
-// const PageAlbums = lazy(() => import('pages/albums'));
-// const PageAlbum = lazy(() => import('pages/album'));
-// const PagePosts = lazy(() => import('pages/posts'));
+const PageMain = lazy(() => import('pages/main'));
+const PageFavorite = lazy(() => import('pages/favorite'));
+const PageAuthorization = lazy(() => import('pages/authorization'));
 
 export const STATIC_ROUTES: TRouteStatic[] = [
   {
     path: '/',
     name: 'Главная',
-    isNeedAuthentication: false,
-    element: <PageMain />,
+    isNeedInMainMenu: true,
+    element: (
+      <Suspense fallback={null /*<LoadingPage />*/}>
+        <PageMain />
+      </Suspense>
+    ),
     img: (
       <img
         src={require('assets/images/logo.png')}
@@ -26,7 +26,7 @@ export const STATIC_ROUTES: TRouteStatic[] = [
   {
     path: '/favorite',
     name: 'Избранное',
-    isNeedAuthentication: true,
+    isNeedInMainMenu: true,
     element: (
       <Suspense fallback={null /*<LoadingPage />*/}>
         <PageFavorite />
@@ -40,15 +40,28 @@ export const STATIC_ROUTES: TRouteStatic[] = [
       />
     ),
   },
-  // {
-  //   path: '/movies',
-  //   name: 'Фильмы',
-  //   element: (
-  //     <Suspense fallback={<LoadingPage />}>
-  //       <PageMovies />
-  //     </Suspense>
-  //   ),
-  // },
+  {
+    path: '/login',
+    name: 'Войти',
+    isNeedInMainMenu: false,
+    element: (
+      <Suspense fallback={null /*<LoadingPage />*/}>
+        <PageAuthorization />
+      </Suspense>
+    ),
+    img: null,
+  },
+  {
+    path: '/signup',
+    name: 'Авторизация',
+    isNeedInMainMenu: false,
+    element: (
+      <Suspense fallback={null /*<LoadingPage />*/}>
+        <PageAuthorization />
+      </Suspense>
+    ),
+    img: null,
+  },
 ];
 
 export const DYNAMIC_ROUTES: TRouteDymanic[] = [

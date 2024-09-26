@@ -24,8 +24,11 @@ const MoviesCont: React.FC = (props) => {
   return (
     <>
       {!!data?.moviesList?.length && (
-        <div className="w-5/6 mx-auto mt-5 ">
-          <div className="grid gap-5 grid-cols-grid-cards">
+        <div
+          style={{ height: `calc(100vh - 10rem)` }}
+          className="w-5/6 mx-auto flex flex-col justify-between"
+        >
+          <div className="grid gap-5 grid-cols-grid-cards overflow-y-auto">
             {data.moviesList.map((m) => (
               <MovieCard
                 key={m.id}

@@ -6,7 +6,6 @@ const Header: React.FC = () => {
     <header
       className={`flex justify-between items-center
                 bg-slate-200 dark:bg-slate-950
-                /*bg-blue-200 dark:bg-blue-950*/
      `}
     >
       <div className="w-20 h-20 m-3">

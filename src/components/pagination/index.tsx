@@ -7,7 +7,9 @@ const Pagination: React.FC<TPagination> = (props) => {
   const { limit, page, pages, total } = props;
   const [isChangePageMode, setIsChangePageMode] = useState(false);
   return (
-    <div className="flex flex-col items-center max-w-min dark:text-slate-950 mb-3">
+    <div
+      className="flex flex-col items-center max-w-min h-28 dark:text-slate-950 mb-3"
+    >
       {isChangePageMode ? (
         <ChangePage
           page={page}

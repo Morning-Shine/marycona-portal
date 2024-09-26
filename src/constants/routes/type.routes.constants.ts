@@ -1,7 +1,7 @@
 export type TRouteStatic = {
     name: string;
     path: string;
-    isNeedAuthentication: boolean;
+    isNeedInMainMenu: boolean;
     element: React.ReactNode;
     img?: React.ReactNode
   };
