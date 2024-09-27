@@ -1,15 +1,20 @@
-import { MutableRefObject } from "react";
 
 // TODO
 export type TAuthFormProps = {
-  // ref: MutableRefObject<any>;
   path: string;
   //   path: '/login' | '/signup'
 };
 
 export type TAuthFormValues = {
   login: string;
-//   name: string;
   password: string;
-//   repeatPassword: string;
 };
+
+export type TAuthRegFormValues = TAuthFormValues & {
+  name: string;
+  repeatPassword: string;
+};
+
+export type TAuthConditional<T> = T extends TAuthRegFormValues
+  ? TAuthRegFormValues
+  : TAuthFormValues;

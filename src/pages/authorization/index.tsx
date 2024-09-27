@@ -2,11 +2,18 @@ import { useLocation } from 'react-router-dom';
 import AuthForm from './form';
 import { useRef } from 'react';
 import { FormikProps } from 'formik';
-import { TAuthFormValues } from './form/type';
+import {
+  TAuthConditional,
+  TAuthFormValues,
+  TAuthRegFormValues,
+} from './form/type';
 
 const PageAuthorization: React.FC = () => {
   const { pathname: path } = useLocation();
-  const formRef = useRef<FormikProps<TAuthFormValues>>(null);
+  const formRef =
+    useRef<FormikProps<TAuthConditional<TAuthFormValues | TAuthRegFormValues>>>(
+      null
+    );
 
   return (
     <section className="h-full">
