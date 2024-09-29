@@ -9,6 +9,10 @@ import {
 import { forwardRef, Ref } from 'react';
 import { FormikProps } from 'formik';
 import FormFields from './FormFields';
+import {
+  YUP_VALIDATION_LOGIN,
+  YUP_VALIDATION_SIGNUP,
+} from 'constants/validation/yupAuth';
 
 const AuthForm = forwardRef(
   (
@@ -24,10 +28,15 @@ const AuthForm = forwardRef(
         ? { login: '', password: '' }
         : { login: '', password: '', name: '', repeatPassword: '' };
 
+    const validationSchema = Yup.object().shape(
+      path === '/login' ? YUP_VALIDATION_LOGIN : YUP_VALIDATION_SIGNUP
+    );
+
     return (
       <Formik
         innerRef={ref}
         initialValues={initialValues}
+        validationSchema={validationSchema}
         onSubmit={(values, actions) => console.log('FORM', values, actions)}
       >
         {

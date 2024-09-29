@@ -4,9 +4,11 @@ import { TAuthFormProps } from './type';
 import { AUTH_FORM_FIELDS } from 'constants/enums';
 import { TAuthField } from 'types/authField';
 
-
 const FormFields: React.FC<TAuthFormProps> = ({ path }) => {
-  const { errors, touched } = useFormikContext();
+  const { errors, touched, values } = useFormikContext();
+  console.log('values', values);
+  console.log('errors', errors);
+  console.log('touched', touched);
 
   const styleLabel = `mt-3 text-lg font-bold text-amber-500 dark:text-amber-600`;
   // TODO в мозилле цвет фона иной, как сбросить? appearance-none не работает
@@ -28,7 +30,7 @@ const FormFields: React.FC<TAuthFormProps> = ({ path }) => {
       <Field
         id={field.id}
         name={field.id}
-        type={field.id.includes('password') ? 'password' : 'text'}
+        type={field.id.toLowerCase().includes('password') ? 'password' : 'text'}
         className={styleField}
       />
       {errors?.[field.id as keyof typeof errors] &&
