@@ -1,4 +1,4 @@
-import { TAuthField } from "types/authField";
+import { TAuthField } from 'types/authField';
 
 export const ENUMS = {
   noInfo: 'нет информации',
@@ -29,3 +29,15 @@ export const AUTH_FORM_FIELDS: TAuthField[] = [
     isLogIn: false,
   },
 ];
+
+// export const AUTH_NOTIFICATIONS={
+//   noUserExist: 'пользователь не найден',
+//   wrongPassword: 'пароль не подходит',
+//   userAlreadyExists:  'пользователь уже существует'
+// }
+
+export const AUTH_NOTIFICATIONS = [
+  'noUserExist',
+  'wrongPassword',
+  'userAlreadyExists',
+] as const;

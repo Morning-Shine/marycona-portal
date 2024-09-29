@@ -1,3 +1,5 @@
+import { AUTH_NOTIFICATIONS } from 'constants/enums';
+import { Dispatch, SetStateAction } from 'react';
 
 // TODO
 export type TAuthFormProps = {
@@ -18,3 +20,10 @@ export type TAuthRegFormValues = TAuthFormValues & {
 export type TAuthConditional<T> = T extends TAuthRegFormValues
   ? TAuthRegFormValues
   : TAuthFormValues;
+
+export type TNotifications = (typeof AUTH_NOTIFICATIONS)[number] | null;
+
+export type TShowInfo = {
+  setIsModal: Dispatch<SetStateAction<boolean>>;
+  info: TNotifications;
+};

@@ -32,7 +32,7 @@ const Modal: React.FC<TModalProps> = (props) => {
       onClick={(e) => onCloseHandler(e)}
     >
       <div
-        className={`w-2/3 mt-2 mx-auto p-5 rounded-md relative
+        className={`flex w-min mt-32 mx-auto p-5 rounded-md relative
             bg-slate-200 dark:bg-slate-950
             text-amber-950 dark:text-amber-300
             `}

@@ -9,7 +9,8 @@ const ThemeSwitcher: React.FC = (props) => {
 
   return (
     <div
-      className={`w-16 h-16 rounded-full flex justify-center vertical-align
+      className={`w-16 h-16 min-h-16 min-w-16
+       rounded-full flex justify-center vertical-align
        p-1 cursor-pointer bg-amber-500 dark:bg-amber-600`}
       onClick={() => onModeChange(isDarkMode ? 'light' : 'dark')}
     >

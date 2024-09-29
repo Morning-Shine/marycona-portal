@@ -13,18 +13,20 @@ import {
 } from 'redux-persist';
 import pageSizesSlice from './pageSizesSlice';
 import themeSlice from './themeSlice';
+import userSlice from './userSlice';
 
 const persistConfig = {
   key: 'marycona-portal',
   version: 1,
   storage,
-  whitelist: ['theme'],/*'pageSizes',*/ 
+  whitelist: ['theme', 'user'] /*'pageSizes',*/,
 };
 
 const rootReducer = combineReducers({
   [api.reducerPath]: api.reducer,
   pageSizes: pageSizesSlice,
   theme: themeSlice,
+  user: userSlice,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

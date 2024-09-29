@@ -8,7 +8,6 @@ import Authorization from 'components/authorization';
 
 const MainMenu: React.FC = (props) => {
   const { pathname } = useLocation();
-  console.log(pathname);
 
   //TODO стили для навлинка
   const style = '';
