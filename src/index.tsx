@@ -6,7 +6,6 @@ import './index.css';
 import App from './App';
 import { persistor, store } from 'store';
 import { PersistGate } from 'redux-persist/integration/react';
-import { ShowCatContext } from 'store/context';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -21,9 +20,7 @@ root.render(
           loading={null}
           persistor={persistor}
         >
-          {/* <ShowCatContext.Provider> */}
-            <App />
-          {/* </ShowCatContext.Provider> */}
+          <App />
         </PersistGate>
       </Provider>
     </BrowserRouter>

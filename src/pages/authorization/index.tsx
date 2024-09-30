@@ -7,6 +7,7 @@ import {
   TAuthFormValues,
   TAuthRegFormValues,
 } from './form/type';
+import MeowingCat from 'components/meowingCat';
 
 const PageAuthorization: React.FC = () => {
   const { pathname: path } = useLocation();
@@ -16,11 +17,12 @@ const PageAuthorization: React.FC = () => {
     );
 
   return (
-    <section className="h-full">
+    <section className="h-full relative">
       <AuthForm
         path={path}
         ref={formRef}
       />
+      <MeowingCat />
     </section>
   );
 };

@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import Faq from 'components/faq';
+import MeowingCheckBox from '../meowingCheckBox/index.tsx';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="flex py-2 justify-center gap-5 bg-slate-100 dark:bg-slate-900">
+    <footer className="relative flex py-2 justify-center gap-5 bg-slate-100 dark:bg-slate-900">
       <p>
         Создано по заданию ASTON,{' '}
         <Link
@@ -15,6 +16,9 @@ const Footer: React.FC = () => {
         </Link>
       </p>
       <Faq />
+      <div className='absolute right-6 gap-3 flex min-w-max items-center justify-items-end '>
+        <MeowingCheckBox />
+      </div>
     </footer>
   );
 };
