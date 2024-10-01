@@ -5,7 +5,7 @@ import MeowingCheckBox from '../meowingCheckBox/index.tsx';
 const Footer: React.FC = () => {
   const { pathname } = useLocation();
   return (
-    <footer className="relative flex py-2 justify-center gap-5 bg-slate-100 dark:bg-slate-900">
+    <footer className="row-start-3 relative flex py-2 justify-center gap-5 bg-slate-100 dark:bg-slate-900">
       <p>
         Создано по заданию ASTON,{' '}
         <Link

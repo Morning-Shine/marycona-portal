@@ -28,7 +28,7 @@ const PageSizeChanger: React.FC = (props) => {
 
   const pStyle = 'w-10 h-10 leading-10 text-center rounded-full bg-lime-300';
   return (
-    <div className="flex items-end gap-3 text-2xl dark:text-slate-950">
+    <div className="flex items-end gap-3 mb-1 text-2xl dark:text-slate-950">
       <p
         onClick={() => {
           handlePageChange('prev');

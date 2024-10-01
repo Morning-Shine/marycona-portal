@@ -10,8 +10,9 @@ function App() {
   return (
     <ShowCatContext.Provider value={{isShowCat,setIsShowCat }}>
       <div
-        className={`h-screen flex flex-col justify-between
-    dark:bg-slate-800 text-slate-950 dark:text-slate-50`}
+        className={`h-screen max-h-screen
+          grid grid-cols-1 grid-rows-[96px_1fr_44px]
+        dark:bg-slate-800 text-slate-950 dark:text-slate-50`}
       >
         <Header />
         <AppRoutes />
