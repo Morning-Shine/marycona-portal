@@ -1,47 +1,55 @@
-import React from 'react';
-import { useGetMoviesQuery } from 'api/movie';
+import React, { useState } from 'react';
+import { useGetMoviesQuery, useGetMoviesWithSearchQuery } from 'api/movie';
 
 import { QUERY_SELECT_FIELDS } from 'constants/queries/queries';
 import MovieCard from 'components/movieCard';
 import Pagination from 'components/pagination';
 import { useAppSelector } from 'utils/hooks/useRedux';
+import Filters from '../filters';
+import PageSizeChanger from 'components/pageSizeChanger';
 
 const MoviesCont: React.FC = (props) => {
   const pageNumber = useAppSelector((state) =>
-    state.pageSizes.mainPageNumber.toString()
+    state.pageNumbers.mainPageNumber.toString()
   );
-  // TODO поправить отображение пагинации, чтобы не скакало
+  const pageSize = useAppSelector((state) =>
+    state.pageSizes.mainPageSize.toString()
+  );
 
+  const [searchInput, setSearchInput] = useState('');
   const params = new URLSearchParams(
     QUERY_SELECT_FIELDS.map((param) => ['selectFields', param])
   );
   params.append('page', pageNumber);
-  // params.append('limit', pageSize);
+  params.append('limit', pageSize);
 
-  const { data, isFetching } = useGetMoviesQuery(params.toString());
-  //   console.log('+', params);
+  const { data: mainData, isFetching } = useGetMoviesQuery(params.toString());
 
   return (
     <>
-      {!!data?.moviesList?.length && (
+      {!!mainData?.moviesList?.length && (
         <div
           style={{ height: `calc(100vh - 10rem)` }}
-          className="w-5/6 mx-auto flex flex-col justify-between"
+          className="w-5/6 mx-auto grid grid-cols-1 grid-rows-[56px_1fr_112px]"
         >
-          <div className="grid gap-5 grid-cols-grid-cards overflow-y-auto">
-            {data.moviesList.map((m) => (
+          <Filters setSearchInput={setSearchInput} />
+          <div className="grid gap-5 mt-5 grid-cols-grid-cards overflow-y-auto">
+            {mainData.moviesList.map((m) => (
               <MovieCard
                 key={m.id}
                 movieInfo={m}
               />
             ))}
           </div>
-          <Pagination
-            total={data.total}
-            limit={data.limit}
-            page={data.page}
-            pages={data.pages}
-          />
+          <div className="flex justify-between">
+            <Pagination
+              total={mainData.total}
+              limit={mainData.limit}
+              page={mainData.page}
+              pages={mainData.pages}
+            />
+            <PageSizeChanger />
+          </div>
         </div>
       )}
     </>

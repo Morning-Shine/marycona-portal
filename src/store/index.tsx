@@ -12,6 +12,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import pageSizesSlice from './pageSizesSlice';
+import pageNumbersSlice from './pageNumbersSlice';
 import themeSlice from './themeSlice';
 import userSlice from './userSlice';
 
@@ -19,11 +20,12 @@ const persistConfig = {
   key: 'marycona-portal',
   version: 1,
   storage,
-  whitelist: ['theme', 'user'] /*'pageSizes',*/,
+  whitelist: ['theme', 'pageSizes', 'user'],
 };
 
 const rootReducer = combineReducers({
   [api.reducerPath]: api.reducer,
+  pageNumbers: pageNumbersSlice,
   pageSizes: pageSizesSlice,
   theme: themeSlice,
   user: userSlice,

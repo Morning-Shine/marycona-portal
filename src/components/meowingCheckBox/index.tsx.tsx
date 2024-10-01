@@ -5,8 +5,7 @@ const MeowingCheckBox: React.FC = () => {
   const { isShowCat, setIsShowCat } = useContext(ShowCatContext);
   return (
     <>
-      <p>показать котика?^-^</p>
-
+      <p>показать котика? ^-^</p>
       <input
         type="checkbox"
         checked={isShowCat}

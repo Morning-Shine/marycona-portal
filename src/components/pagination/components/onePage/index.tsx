@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'utils/hooks/useRedux';
 import { TPaginationComponents } from '../type';
-import { changeMainPageNumber } from 'store/pageSizesSlice';
+import { changeMainPageNumber } from 'store/pageNumbersSlice';
 
 const OnePage: React.FC<TPaginationComponents> = ({
   page,

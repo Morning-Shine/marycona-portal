@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TPaginationComponents } from '../type';
 import { useAppDispatch } from 'utils/hooks/useRedux';
-import { changeMainPageNumber } from 'store/pageSizesSlice';
+import { changeMainPageNumber } from 'store/pageNumbersSlice';
 
 const ChangePage: React.FC<TPaginationComponents> = ({
   page,
