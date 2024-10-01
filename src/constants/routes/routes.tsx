@@ -4,6 +4,7 @@ import { TRouteStatic, TRouteDymanic } from './type.routes.constants';
 const PageMain = lazy(() => import('pages/main'));
 const PageFavorite = lazy(() => import('pages/favorite'));
 const PageAuthorization = lazy(() => import('pages/authorization'));
+const PageDetails = lazy(() => import('pages/details'));
 
 export const STATIC_ROUTES: TRouteStatic[] = [
   {
@@ -65,12 +66,12 @@ export const STATIC_ROUTES: TRouteStatic[] = [
 ];
 
 export const DYNAMIC_ROUTES: TRouteDymanic[] = [
-  // {
-  //   path: 'movies/:id',
-  //   element: (
-  //     <Suspense fallback={<LoadingPage />}>
-  //       <PageDetail />
-  //     </Suspense>
-  //   ),
-  // },
+  {
+    path: '/:id',
+    element: (
+      <Suspense fallback={null /*<LoadingPage />*/}>
+        <PageDetails />
+      </Suspense>
+    )
+  },
 ];

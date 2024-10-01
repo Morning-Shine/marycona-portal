@@ -33,3 +33,4 @@ export interface IMoviesTransformResponse
 }
 
 export type TPossibleValuesForFiltersResponse = { name: string; slug: string };
+

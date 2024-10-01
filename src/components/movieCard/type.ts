@@ -2,5 +2,5 @@ import { TMovie } from "types/movie"
 
 
 export type TMovieCard={
-    movieInfo: TMovie
+    movieInfo: Omit<TMovie, 'id'>
 }

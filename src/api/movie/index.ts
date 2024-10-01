@@ -63,16 +63,24 @@ export const movieApi = api.injectEndpoints({
         };
       },
     }),
-    getPossibleValuesForFilters: build.query<TPossibleValuesForFiltersResponse[], string>(
-      {
-        query: (params) => ({
-          url: !!params
-            ? `/v1/movie/possible-values-by-field?${params}`
-            : '/v1/movie/possible-values-by-field',
-          method: 'GET',
-        }),
-      }
-    ),
+    getPossibleValuesForFilters: build.query<
+      TPossibleValuesForFiltersResponse[],
+      string
+    >({
+      query: (params) => ({
+        url: !!params
+          ? `/v1.4/movie/possible-values-by-field?${params}`
+          : '/v1.4/movie/possible-values-by-field',
+        method: 'GET',
+      }),
+    }),
+    //TODO сделать типизацию ответа
+    getMovieById: build.query<any, string>({
+      query: (id) => ({
+        url: `/v1.4/movie/${id}`,
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
@@ -80,4 +88,5 @@ export const {
   useGetMoviesQuery,
   useGetMoviesWithSearchQuery,
   useGetPossibleValuesForFiltersQuery,
+  useGetMovieByIdQuery,
 } = movieApi;

@@ -6,7 +6,7 @@ import PosterFoo from 'components/posterFoo';
 import Like from 'components/like';
 
 const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
-  const { id, name, posterUrl, rating, year, countries } = movieInfo;
+  const { name, posterUrl, rating, year, countries } = movieInfo;
   const [isHovering, setIsHovering] = useState(false);
 
   const hoverHandlerOver = () => setIsHovering(true);
