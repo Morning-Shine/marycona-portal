@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { useGetMoviesQuery, useGetMoviesWithSearchQuery } from 'api/movie';
+import { useGetMoviesQuery } from 'api/movie';
 import { QUERY_SELECT_FIELDS } from 'constants/queries/queries';
 import MovieCard from 'components/movieCard';
 import Pagination from 'components/pagination';
 import { useAppSelector } from 'utils/hooks/useRedux';
-import Filters from '../filters';
 import PageSizeChanger from 'components/pageSizeChanger';
 
 const MoviesCont: React.FC = (props) => {
@@ -25,11 +23,7 @@ const MoviesCont: React.FC = (props) => {
     params.toString()
   );
 
-  // const { data: searchData, isFetching: searchDataIsFetching } =
-  //   useGetMoviesWithSearchQuery(params.toString(),{
-  //     refetchOnMountOrArgChange: true,
-  //     skip: !searchInput,
-  //   });
+
 
   return (
     <>
