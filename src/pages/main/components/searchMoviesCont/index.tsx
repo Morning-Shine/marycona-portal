@@ -1,9 +1,7 @@
 import { useGetMoviesWithSearchQuery } from 'api/movie';
-import React from 'react';
-import { useAppSelector } from 'utils/hooks/useRedux';
+import React from 'react';import { useAppSelector } from 'utils/hooks/useRedux';
 import { TSearchMoviesCont } from '../type';
 import MovieCard from 'components/movieCard';
-import { QUERY_SELECT_FIELDS } from 'constants/queries/queries';
 import Pagination from 'components/pagination';
 import PageSizeChanger from 'components/pageSizeChanger';
 

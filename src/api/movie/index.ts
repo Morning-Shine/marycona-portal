@@ -1,5 +1,9 @@
 import { api } from '..';
-import { TMoviesResponseData, IMoviesTransformResponse } from './type';
+import {
+  TMoviesResponseData,
+  IMoviesTransformResponse,
+  TPossibleValuesForFiltersResponse,
+} from './type';
 
 export const movieApi = api.injectEndpoints({
   endpoints: (build) => ({
@@ -19,7 +23,7 @@ export const movieApi = api.injectEndpoints({
             posterUrl: m.poster?.url || null,
             rating: m.rating.imdb,
             year: m.year,
-            countries: m.countries
+            countries: m.countries,
           });
         }
         return {
@@ -47,7 +51,7 @@ export const movieApi = api.injectEndpoints({
             posterUrl: m.poster?.url || null,
             rating: m.rating.imdb,
             year: m.year,
-            countries: m.countries
+            countries: m.countries,
           });
         }
         return {
@@ -59,7 +63,21 @@ export const movieApi = api.injectEndpoints({
         };
       },
     }),
+    getPossibleValuesForFilters: build.query<TPossibleValuesForFiltersResponse[], string>(
+      {
+        query: (params) => ({
+          url: !!params
+            ? `/v1/movie/possible-values-by-field?${params}`
+            : '/v1/movie/possible-values-by-field',
+          method: 'GET',
+        }),
+      }
+    ),
   }),
 });
 
-export const { useGetMoviesQuery, useGetMoviesWithSearchQuery } = movieApi;
+export const {
+  useGetMoviesQuery,
+  useGetMoviesWithSearchQuery,
+  useGetPossibleValuesForFiltersQuery,
+} = movieApi;

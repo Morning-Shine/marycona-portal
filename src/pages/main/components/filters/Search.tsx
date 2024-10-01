@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { TFilters } from '../type';
+import { TSearch } from '../type';
 import useDebounce from 'utils/hooks/useDebounce';
 
-const Search: React.FC<TFilters> = (props) => {
-  const { setSearchInput } = props;
+const Search: React.FC<TSearch> = ({ setSearchInput }) => {
   const [val, setVal] = useState('');
   const debouncedSearchInput = useDebounce(val);
 
@@ -12,8 +11,8 @@ const Search: React.FC<TFilters> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchInput]);
   return (
-    <div className="h-14 w-1/3 flex flex-col justify-between">
-      <h6 className="text-sm font-bold text-amber-600 dark:text-amber-500">
+    <div className="h-14 w-1/4 flex flex-col justify-between">
+      <h6 className="text-sm font-bold truncate text-amber-600 dark:text-amber-500">
         Поиск по названию
       </h6>
       <input

@@ -4,6 +4,14 @@ export type TSearchMoviesCont = {
   searchInput: string;
 };
 
-export type TFilters = {
+export type TSearch = {
   setSearchInput: Dispatch<SetStateAction<string>>;
 };
+
+export type TSelectGenge = {
+  isSearchInput: boolean;
+  setGenreFilter: Dispatch<SetStateAction<string>>;
+};
+export type TFilters = TSelectGenge & TSearch;
+
+export type TMoviesCont = {genreFilter:string};

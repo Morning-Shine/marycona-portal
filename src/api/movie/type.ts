@@ -31,3 +31,5 @@ export interface IMoviesTransformResponse
   extends Omit<TMoviesResponseData, 'docs'> {
   moviesList: TMovie[];
 }
+
+export type TPossibleValuesForFiltersResponse = { name: string; slug: string };

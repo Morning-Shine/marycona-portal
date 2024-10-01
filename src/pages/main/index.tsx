@@ -5,12 +5,17 @@ import SearchMoviesCont from './components/searchMoviesCont';
 
 const PageMain: React.FC = () => {
   const [searchInput, setSearchInput] = useState('');
+  const [genreFilter, setGenreFilter] = useState('');
 
   return (
     <section className="flex flex-col w-5/6 mx-auto row-start-2">
-      <Filters setSearchInput={setSearchInput} />
+      <Filters
+        isSearchInput={!!searchInput}
+        setSearchInput={setSearchInput}
+        setGenreFilter={setGenreFilter}
+      />
       {!searchInput ? (
-        <MoviesCont />
+        <MoviesCont genreFilter={genreFilter}/>
       ) : (
         <SearchMoviesCont searchInput={searchInput} />
       )}
