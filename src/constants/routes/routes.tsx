@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { TRouteStatic, TRouteDymanic } from './type.routes.constants';
+import PageNotFound from 'pages/404';
 
 const PageMain = lazy(() => import('pages/main'));
 const PageFavorite = lazy(() => import('pages/favorite'));
@@ -63,6 +64,12 @@ export const STATIC_ROUTES: TRouteStatic[] = [
     ),
     img: null,
   },
+  {
+    path: '*',
+    name: 'NotFound',
+    isNeedInMainMenu: false,
+    element: <PageNotFound />,
+  },
 ];
 
 export const DYNAMIC_ROUTES: TRouteDymanic[] = [
@@ -72,6 +79,6 @@ export const DYNAMIC_ROUTES: TRouteDymanic[] = [
       <Suspense fallback={null /*<LoadingPage />*/}>
         <PageDetails />
       </Suspense>
-    )
+    ),
   },
 ];

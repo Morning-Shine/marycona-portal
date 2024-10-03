@@ -27,7 +27,7 @@ const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
 
   return (
     <Link
-      to={`${id}`}
+      to={`/${id}`}
       onMouseOver={hoverHandlerOver}
       onMouseOut={hoverHandlerOut}
     >

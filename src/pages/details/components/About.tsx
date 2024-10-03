@@ -3,6 +3,7 @@ import LabelRating from 'components/labelRating';
 import PosterFoo from 'components/posterFoo';
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import IsFavorite from './IsFavorite';
 
 const About: React.FC = () => {
   const { id = '' } = useParams();
@@ -78,7 +79,8 @@ const About: React.FC = () => {
               </div>
             )}
           </div>
-          <div>
+          <div className='relative'>
+            <IsFavorite movieId={+id}/>
             <p className="mt-24 text-justify">{description}</p>
           </div>
         </div>
