@@ -1,3 +1,7 @@
+import { TMovie } from "types/movie";
+
 export type TLike={
-    isLiked: boolean
+    movieInfo: TMovie;
+    // itemId: number;
+    // isLiked: boolean
 }

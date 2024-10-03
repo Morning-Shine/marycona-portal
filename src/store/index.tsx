@@ -15,12 +15,13 @@ import pageSizesSlice from './pageSizesSlice';
 import pageNumbersSlice from './pageNumbersSlice';
 import themeSlice from './themeSlice';
 import userSlice from './userSlice';
+import favoriteSlice from './favoriteSlice';
 
 const persistConfig = {
   key: 'marycona-portal',
   version: 1,
   storage,
-  whitelist: ['theme', 'pageSizes', 'user'],
+  whitelist: ['theme', 'pageSizes', 'user', 'favorite'],
 };
 
 const rootReducer = combineReducers({
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   pageSizes: pageSizesSlice,
   theme: themeSlice,
   user: userSlice,
+  favorite: favoriteSlice,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

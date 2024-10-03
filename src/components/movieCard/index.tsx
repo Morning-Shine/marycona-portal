@@ -4,9 +4,15 @@ import LabelRating from 'components/labelRating';
 import { ENUMS } from 'constants/enums';
 import PosterFoo from 'components/posterFoo';
 import Like from 'components/like';
+import { Link } from 'react-router-dom';
+import { useAppSelector } from 'utils/hooks/useRedux';
 
 const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
-  const { name, posterUrl, rating, year, countries } = movieInfo;
+  const { id, name, posterUrl, rating, year, countries } = movieInfo;
+  const user = useAppSelector((state) => state.user?.user?.login);
+  const isLiked = useAppSelector((state) =>
+    user ? state.favorite.movies?.[user]?.find((i) => i.id === id) : null
+  );
   const [isHovering, setIsHovering] = useState(false);
 
   const hoverHandlerOver = () => setIsHovering(true);
@@ -20,18 +26,21 @@ const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
     : {};
 
   return (
-    <div
-      className="cursor-pointer"
+    <Link
+      to={`${id}`}
       onMouseOver={hoverHandlerOver}
       onMouseOut={hoverHandlerOut}
     >
-      {/* TODO  обработка нажатия лайка*/}
       <div
         style={poster}
         className={`w-40 h-60 relative rounded bg-gradient-to-b
            from-amber-500 to-lime-500 dark:from-amber-600 dark:to-lime-600`}
       >
-        {isHovering && <Like isLiked />}
+        {(isLiked || isHovering) && (
+          <div className="absolute flex justify-end w-8 top-2 left-3">
+            <Like movieInfo={movieInfo} />
+          </div>
+        )}
         {!posterUrl && <PosterFoo />}
         <div className="absolute right-1 top-2/3">
           <LabelRating rating={rating} />
@@ -42,7 +51,7 @@ const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
         {countries?.map((c) => `${c.name}, `)}
         <span className="text-md">{!!year ? year : ENUMS.noYear}</span>
       </p>
-    </div>
+    </Link>
   );
 };
 

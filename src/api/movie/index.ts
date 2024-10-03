@@ -69,8 +69,8 @@ export const movieApi = api.injectEndpoints({
     >({
       query: (params) => ({
         url: !!params
-          ? `/v1.4/movie/possible-values-by-field?${params}`
-          : '/v1.4/movie/possible-values-by-field',
+          ? `/v1/movie/possible-values-by-field?${params}`
+          : '/v1/movie/possible-values-by-field',
         method: 'GET',
       }),
     }),
