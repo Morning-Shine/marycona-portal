@@ -1,5 +1,8 @@
+import { TMovie } from "types/movie";
+
 export type TAbout = { id: string };
 
 export type TIsFavorite={
-    movieId: number
+    // movieId: number
+    movieInfo: TMovie
 }

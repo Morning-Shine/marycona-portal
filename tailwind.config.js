@@ -16,7 +16,7 @@ module.exports = {
       //   gray: colors.gray,
       // },
       gridTemplateColumns: {
-        'grid-cards': 'repeat( auto-fit, minmax(10rem, 1fr))',
+        'grid-cards': 'repeat(auto-fill, minmax(10rem, 1fr))',
       },
     },
   },

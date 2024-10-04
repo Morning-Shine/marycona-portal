@@ -9,7 +9,9 @@ import Loader from 'components/loader';
 const About: React.FC = () => {
   const { id = '' } = useParams();
 
-  const { data, isLoading } = useGetMovieByIdQuery(id, { skip: !id /*|| !isIdAllNumbers*/});
+  const { data, isLoading } = useGetMovieByIdQuery(id, {
+    skip: !id,
+  });
   // console.log(data);
 
   const name = data?.name ?? data?.alternativeName ?? 'Название не указано';
@@ -81,7 +83,17 @@ const About: React.FC = () => {
             )}
           </div>
           <div className="relative">
-            <IsFavorite movieId={+id} />
+            <IsFavorite
+              movieInfo={{
+                id: data.id,
+                name:
+                  data.name || data.alternativeName || 'название отсутствует',
+                posterUrl: data.poster?.url || null,
+                rating: data?.rating?.imdb ?? 0,
+                year: data?.year,
+                countries: data?.countries,
+              }}
+            />
             <p className="mt-24 text-justify">{description}</p>
           </div>
         </div>
