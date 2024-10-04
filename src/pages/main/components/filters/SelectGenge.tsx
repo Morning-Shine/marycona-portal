@@ -37,12 +37,20 @@ const SelectGenge: React.FC<TSelectGenge> = ({
         >
           Все
         </option>
-        {!!data?.length &&
+        {isLoading && (
+          <option
+            disabled
+            value=""
+            className="appearance-none bg-yellow-200"
+          >
+            загружаю варианты...
+          </option>
+        )}
+        {!isLoading && !!data?.length &&
           data.map((genre) => (
             <option
               key={genre.slug}
               value={genre.name}
-              // value={genre.slug}
             >
               {genre.name}
             </option>

@@ -5,6 +5,7 @@ import Pagination from 'components/pagination';
 import { useAppSelector } from 'utils/hooks/useRedux';
 import PageSizeChanger from 'components/pageSizeChanger';
 import { TMoviesCont } from '../type';
+import Loader from 'components/loader';
 
 const MoviesCont: React.FC<TMoviesCont> = ({ genreFilter }) => {
   const pageNumber = useAppSelector((state) =>
@@ -28,9 +29,8 @@ const MoviesCont: React.FC<TMoviesCont> = ({ genreFilter }) => {
 
   return (
     <>
-      {!!mainData?.moviesList?.length && (
+      {!mainDataIsFetching && !!mainData?.moviesList?.length && (
         <div className="grid grid-cols-1 grid-rows-[1fr_112px]">
-          {/* <Filters setSearchInput={setSearchInput} /> */}
           <div
             style={{ height: `calc(100vh - 350px)` }}
             className="grid gap-5 mt-5 mb-2 grid-cols-grid-cards overflow-y-auto"
@@ -51,6 +51,14 @@ const MoviesCont: React.FC<TMoviesCont> = ({ genreFilter }) => {
             />
             <PageSizeChanger />
           </div>
+        </div>
+      )}
+      {mainDataIsFetching && (
+        <div
+          style={{ height: `calc(100vh - 350px)` }}
+          className="flex items-center justify-center"
+        >
+          <Loader />
         </div>
       )}
     </>

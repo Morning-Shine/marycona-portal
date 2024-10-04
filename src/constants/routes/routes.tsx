@@ -1,11 +1,18 @@
 import { Suspense, lazy } from 'react';
 import { TRouteStatic, TRouteDymanic } from './type.routes.constants';
 import PageNotFound from 'pages/404';
+import Loader from 'components/loader';
 
 const PageMain = lazy(() => import('pages/main'));
 const PageFavorite = lazy(() => import('pages/favorite'));
 const PageAuthorization = lazy(() => import('pages/authorization'));
 const PageDetails = lazy(() => import('pages/details'));
+
+const SuspenseLoader = () => (
+  <div className="flex justify-center">
+    <Loader />
+  </div>
+);
 
 export const STATIC_ROUTES: TRouteStatic[] = [
   {
@@ -13,7 +20,7 @@ export const STATIC_ROUTES: TRouteStatic[] = [
     name: 'Главная',
     isNeedInMainMenu: true,
     element: (
-      <Suspense fallback={null /*<LoadingPage />*/}>
+      <Suspense fallback={<SuspenseLoader />}>
         <PageMain />
       </Suspense>
     ),
@@ -30,7 +37,7 @@ export const STATIC_ROUTES: TRouteStatic[] = [
     name: 'Избранное',
     isNeedInMainMenu: true,
     element: (
-      <Suspense fallback={null /*<LoadingPage />*/}>
+      <Suspense fallback={<SuspenseLoader />}>
         <PageFavorite />
       </Suspense>
     ),
@@ -47,22 +54,20 @@ export const STATIC_ROUTES: TRouteStatic[] = [
     name: 'Войти',
     isNeedInMainMenu: false,
     element: (
-      <Suspense fallback={null /*<LoadingPage />*/}>
+      <Suspense fallback={<SuspenseLoader />}>
         <PageAuthorization />
       </Suspense>
     ),
-    img: null,
   },
   {
     path: '/signup',
     name: 'Авторизация',
     isNeedInMainMenu: false,
     element: (
-      <Suspense fallback={null /*<LoadingPage />*/}>
+      <Suspense fallback={<SuspenseLoader />}>
         <PageAuthorization />
       </Suspense>
     ),
-    img: null,
   },
   {
     path: '*',
@@ -76,7 +81,7 @@ export const DYNAMIC_ROUTES: TRouteDymanic[] = [
   {
     path: '/:id',
     element: (
-      <Suspense fallback={null /*<LoadingPage />*/}>
+      <Suspense fallback={<SuspenseLoader />}>
         <PageDetails />
       </Suspense>
     ),

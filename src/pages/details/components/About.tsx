@@ -4,11 +4,12 @@ import PosterFoo from 'components/posterFoo';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import IsFavorite from './IsFavorite';
+import Loader from 'components/loader';
 
 const About: React.FC = () => {
   const { id = '' } = useParams();
 
-  const { data, isLoading } = useGetMovieByIdQuery(id, { skip: !id });
+  const { data, isLoading } = useGetMovieByIdQuery(id, { skip: !id /*|| !isIdAllNumbers*/});
   // console.log(data);
 
   const name = data?.name ?? data?.alternativeName ?? 'Название не указано';
@@ -30,7 +31,7 @@ const About: React.FC = () => {
   //TODO добавить еще инфо о фильме
   return (
     <>
-      {!!data && (
+      {!isLoading && !!data && (
         <div
           className={`grid grid-rows-1 grid-cols-[320px_1fr]
                       xl:grid-cols-[320px_1fr_1fr] gap-3`}
@@ -79,10 +80,18 @@ const About: React.FC = () => {
               </div>
             )}
           </div>
-          <div className='relative'>
-            <IsFavorite movieId={+id}/>
+          <div className="relative">
+            <IsFavorite movieId={+id} />
             <p className="mt-24 text-justify">{description}</p>
           </div>
+        </div>
+      )}
+      {isLoading && (
+        <div
+          style={{ height: `calc(100vh - 350px)` }}
+          className="flex items-center justify-center"
+        >
+          <Loader />
         </div>
       )}
     </>

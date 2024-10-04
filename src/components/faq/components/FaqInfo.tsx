@@ -1,7 +1,6 @@
 import { FAQ } from 'constants/faq';
 import { useState } from 'react';
 
-//TODO добавить пагинацию с * * * и боковыми стрелками, внести еще два пункта + анимация
 const FaqInfo: React.FC = () => {
   const [page, setPage] = useState<number>(0);
 

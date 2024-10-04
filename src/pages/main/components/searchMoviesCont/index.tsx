@@ -1,9 +1,11 @@
 import { useGetMoviesWithSearchQuery } from 'api/movie';
-import React from 'react';import { useAppSelector } from 'utils/hooks/useRedux';
+import React from 'react';
+import { useAppSelector } from 'utils/hooks/useRedux';
 import { TSearchMoviesCont } from '../type';
 import MovieCard from 'components/movieCard';
 import Pagination from 'components/pagination';
 import PageSizeChanger from 'components/pageSizeChanger';
+import Loader from 'components/loader';
 
 const SearchMoviesCont: React.FC<TSearchMoviesCont> = ({ searchInput }) => {
   const pageSize = useAppSelector((state) =>
@@ -22,7 +24,7 @@ const SearchMoviesCont: React.FC<TSearchMoviesCont> = ({ searchInput }) => {
 
   return (
     <>
-      {!!searchData?.moviesList?.length && (
+      {!searchDataIsFetching && !!searchData?.moviesList?.length && (
         <div className="grid grid-cols-1 grid-rows-[1fr_112px]">
           <div
             style={{ height: `calc(100vh - 350px)` }}
@@ -44,6 +46,14 @@ const SearchMoviesCont: React.FC<TSearchMoviesCont> = ({ searchInput }) => {
             />
             <PageSizeChanger />
           </div>
+        </div>
+      )}
+      {searchDataIsFetching && (
+        <div
+          style={{ height: `calc(100vh - 350px)` }}
+          className="flex items-center justify-center"
+        >
+          <Loader />
         </div>
       )}
     </>
