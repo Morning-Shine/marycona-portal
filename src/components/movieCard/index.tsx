@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TMovieCard } from './type';
 import LabelRating from 'components/labelRating';
 import { ENUMS } from 'constants/enums';
-import PosterFoo from 'components/posterFoo';
+import PosterPlug from 'components/posterPlug';
 import Like from 'components/like';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from 'utils/hooks/useRedux';
@@ -41,7 +41,7 @@ const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
             <Like movieInfo={movieInfo} />
           </div>
         )}
-        {!posterUrl && <PosterFoo />}
+        {!posterUrl && <PosterPlug />}
         <div className="absolute right-1 top-2/3">
           <LabelRating rating={rating} />
         </div>

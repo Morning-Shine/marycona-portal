@@ -9,7 +9,7 @@ const PageAuthorization = lazy(() => import('pages/authorization'));
 const PageDetails = lazy(() => import('pages/details'));
 
 const SuspenseLoader = () => (
-  <div className="flex justify-center">
+  <div className="mt-5 h-[400px] w-[772] flex justify-center">
     <Loader />
   </div>
 );

@@ -1,3 +1,3 @@
-export type TNotFoundFoo = {
+export type TNotFoundPlug = {
   notificationMsg: string;
 };

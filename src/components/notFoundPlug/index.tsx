@@ -1,6 +1,6 @@
-import { TNotFoundFoo } from "./type";
+import { TNotFoundPlug } from "./type";
 
-const NotFoundFoo: React.FC<TNotFoundFoo> = ({notificationMsg}) => {
+const NotFoundPlug: React.FC<TNotFoundPlug> = ({notificationMsg}) => {
   return (
     <>
       <div
@@ -21,4 +21,4 @@ const NotFoundFoo: React.FC<TNotFoundFoo> = ({notificationMsg}) => {
   );
 };
 
-export default NotFoundFoo;
+export default NotFoundPlug;

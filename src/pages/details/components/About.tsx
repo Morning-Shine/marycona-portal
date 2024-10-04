@@ -1,6 +1,6 @@
 import { useGetMovieByIdQuery } from 'api/movie';
 import LabelRating from 'components/labelRating';
-import PosterFoo from 'components/posterFoo';
+import PosterPlug from 'components/posterPlug';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import IsFavorite from './IsFavorite';
@@ -57,7 +57,7 @@ const About: React.FC = () => {
                 my-3 relative rounded bg-gradient-to-b
               from-amber-500 to-lime-500 dark:from-amber-600 dark:to-lime-600`}
             >
-              {!poster && <PosterFoo />}
+              {!poster && <PosterPlug />}
               <div className="absolute right-1 top-2/3">
                 <LabelRating rating={rating} />
               </div>

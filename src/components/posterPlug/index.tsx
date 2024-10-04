@@ -1,15 +1,15 @@
 import React from 'react';
 
-const PosterFoo: React.FC = (props) => {
+const PosterPlug: React.FC = (props) => {
   return (
     <div className='flex px-1 h-full'>
           <img
-            src={require('assets/images/posterFoo.png')}
-            alt="posterFoo"
+            src={require('assets/images/posterPlug.png')}
+            alt="posterPlug"
             className='self-center justify-self-center'
           />
     </div>
   );
 };
 
-export default PosterFoo;
+export default PosterPlug;

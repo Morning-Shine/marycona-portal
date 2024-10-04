@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import About from './components/About';
-import NotFoundFoo from 'components/notFoundFoo';
+import NotFoundPlug from 'components/notFoundPlug';
 
 const PageDetails: React.FC = () => {
   const { id = '' } = useParams();
@@ -12,7 +12,7 @@ const PageDetails: React.FC = () => {
         <About />
       ) : (
         <div className="flex flex-col w-full h-full items-center justify-center">
-          <NotFoundFoo notificationMsg={`фильм с id ${id} не существует`} />
+          <NotFoundPlug notificationMsg={`фильм с id ${id} не существует`} />
         </div>
       )}
     </section>
