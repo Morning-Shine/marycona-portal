@@ -24,4 +24,4 @@ const MeowingCat: React.FC = () => {
   );
 };
 
-export default MeowingCat;
+export default React.memo(MeowingCat);

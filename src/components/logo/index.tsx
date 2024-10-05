@@ -1,6 +1,7 @@
 import { STATIC_ROUTES } from 'constants/routes/routes';
 import logo from 'assets/images/logo.png';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 const Logo: React.FC = () => {
   return (
@@ -16,4 +17,4 @@ const Logo: React.FC = () => {
   );
 };
 
-export default Logo;
+export default React.memo(Logo);

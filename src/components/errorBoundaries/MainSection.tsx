@@ -20,4 +20,4 @@ const MainSection: React.FC = (props) => {
   );
 };
 
-export default MainSection;
+export default React.memo(MainSection);

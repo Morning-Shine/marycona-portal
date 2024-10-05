@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useAppSelector } from 'utils/hooks/useRedux';
 import NeedAuthorization from './NeedAuthorization';
 import Search from './Search';
-import Pagination from 'components/pagination';
 
 const MoviesCont: React.FC = (props) => {
   const user = useAppSelector((state) => state.user.user?.login);
@@ -40,15 +39,6 @@ const MoviesCont: React.FC = (props) => {
                 <p>У вас нет избранных фильмов</p>
               )}
             </div>
-            {/* <div className="flex justify-between">
-      <Pagination
-        total={mainData.total}
-        limit={mainData.limit}
-        page={mainData.page}
-        pages={mainData.pages}
-      />
-      <PageSizeChanger />
-    </div> */}
           </div>
         </>
       ) : (

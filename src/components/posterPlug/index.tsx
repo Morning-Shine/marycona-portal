@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PosterPlug: React.FC = (props) => {
+const PosterPlug: React.FC = () => {
   return (
     <div className='flex px-1 h-full'>
           <img
@@ -12,4 +12,4 @@ const PosterPlug: React.FC = (props) => {
   );
 };
 
-export default PosterPlug;
+export default React.memo(PosterPlug);

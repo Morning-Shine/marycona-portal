@@ -18,4 +18,4 @@ const HeaderSection: React.FC = (props) => {
   );
 };
 
-export default HeaderSection;
+export default React.memo(HeaderSection);

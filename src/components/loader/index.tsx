@@ -14,4 +14,4 @@ const Loader: React.FC = (props) => {
   );
 };
 
-export default Loader;
+export default React.memo(Loader);
