@@ -77,7 +77,7 @@ export const STATIC_ROUTES: TRouteStatic[] = [
 
 export const DYNAMIC_ROUTES: TRouteDymanic[] = [
   {
-    path: '/:id',
+    path: '/detail/:id',
     element: (
       <Suspense fallback={<SuspenseLoader />}>
         <PageDetails />
