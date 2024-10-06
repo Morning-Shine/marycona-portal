@@ -1,5 +1,6 @@
 {
-  "name": "marycona-meow-portal",
+  "name": "marycona-portal",
+  "homepage": "https://morning-shine.github.io/marycona-portal/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -3,8 +3,6 @@ import { useAppDispatch, useAppSelector } from 'utils/hooks/useRedux';
 import { PAGE_SIZES } from 'constants/enums';
 import { changeMainPageSize } from 'store/pageSizesSlice';
 
-
-
 const PageSizeChanger: React.FC = (props) => {
   const pageSize = useAppSelector((state) =>
     state.pageSizes.mainPageSize.toString()
@@ -22,8 +20,7 @@ const PageSizeChanger: React.FC = (props) => {
         currentPage = PAGE_SIZES[currentPageIndex + 1];
     }
     if (!currentPage) return;
-    dispatch(changeMainPageSize(currentPage)); 
-
+    dispatch(changeMainPageSize(currentPage));
   };
 
   const pStyle = 'w-10 h-10 leading-10 text-center rounded-full bg-lime-300';
@@ -45,7 +42,7 @@ const PageSizeChanger: React.FC = (props) => {
       </p>
       <div
         className={`min-w-10 max-w-min h-10 px-2 flex
-        cursor-pointer rounded-full items-center justify-center
+        rounded-full items-center justify-center
         bg-lime-400`}
       >
         <p className="font-bold">{pageSize}</p>
