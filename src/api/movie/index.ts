@@ -74,7 +74,6 @@ export const movieApi = api.injectEndpoints({
         method: 'GET',
       }),
     }),
-    //TODO сделать типизацию ответа
     getMovieById: build.query<any, string>({
       query: (id) => ({
         url: `/v1.4/movie/${id}`,

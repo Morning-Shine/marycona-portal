@@ -8,7 +8,7 @@ const SelectGenge: React.FC<TSelectGenge> = ({
   const params = new URLSearchParams();
   params.append('field', 'genres.name');
 
-  const { data, isLoading } = useGetPossibleValuesForFiltersQuery(
+  const { data, isLoading, isError } = useGetPossibleValuesForFiltersQuery(
     params.toString()
   );
 
@@ -46,7 +46,16 @@ const SelectGenge: React.FC<TSelectGenge> = ({
             загружаю варианты...
           </option>
         )}
-        {!isLoading && !!data?.length &&
+          {isError && (
+          <option
+            disabled
+            value=""
+            className="appearance-none bg-yellow-200"
+          >
+            невозможно подгрузить, воспользуйтесь поиском
+          </option>
+        )}
+        {!isError&&!isLoading && !!data?.length &&
           data.map((genre) => (
             <option
               key={genre.slug}

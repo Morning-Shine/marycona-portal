@@ -4,7 +4,7 @@ import { useAppSelector } from 'utils/hooks/useRedux';
 import NeedAuthorization from './NeedAuthorization';
 import Search from './Search';
 
-const MoviesCont: React.FC = (props) => {
+const MoviesCont: React.FC = () => {
   const user = useAppSelector((state) => state.user.user?.login);
   const movies = useAppSelector((state) =>
     user ? state.favorite.movies[user] : null
@@ -42,7 +42,6 @@ const MoviesCont: React.FC = (props) => {
           </div>
         </>
       ) : (
-        //TODO сделать стили ссылок аналогично как в хедере?
         <NeedAuthorization />
       )}
     </>

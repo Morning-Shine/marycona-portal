@@ -16,44 +16,59 @@ const SearchMoviesCont: React.FC<TSearchMoviesCont> = ({ searchInput }) => {
   params.append('limit', pageSize);
   params.append('query', searchInput);
 
-  const { data: searchData, isFetching: searchDataIsFetching } =
-    useGetMoviesWithSearchQuery(params.toString(), {
-      refetchOnMountOrArgChange: true,
-      skip: !searchInput,
-    });
+  const {
+    data: searchData,
+    isFetching: searchDataIsFetching,
+    isError,
+  } = useGetMoviesWithSearchQuery(params.toString(), {
+    refetchOnMountOrArgChange: true,
+    skip: !searchInput,
+  });
 
   return (
     <>
-      {!searchDataIsFetching && !!searchData?.moviesList?.length && (
-        <div className="grid grid-cols-1 grid-rows-[1fr_112px]">
-          <div
-            style={{ height: `calc(100vh - 350px)` }}
-            className="grid gap-5 mt-5 mb-2 grid-cols-grid-cards overflow-y-auto"
-          >
-            {searchData.moviesList.map((m) => (
-              <MovieCard
-                key={m.id}
-                movieInfo={m}
+      {!isError &&
+        !searchDataIsFetching &&
+        !!searchData?.moviesList?.length && (
+          <div className="grid grid-cols-1 grid-rows-[1fr_112px]">
+            <div
+              style={{ height: `calc(100vh - 350px)` }}
+              className="grid gap-5 mt-5 mb-2 grid-cols-grid-cards overflow-y-auto"
+            >
+              {searchData.moviesList.map((m) => (
+                <MovieCard
+                  key={m.id}
+                  movieInfo={m}
+                />
+              ))}
+            </div>
+            <div className="flex justify-between">
+              <Pagination
+                total={searchData.total}
+                limit={searchData.limit}
+                page={searchData.page}
+                pages={searchData.pages}
               />
-            ))}
+              <PageSizeChanger />
+            </div>
           </div>
-          <div className="flex justify-between">
-            <Pagination
-              total={searchData.total}
-              limit={searchData.limit}
-              page={searchData.page}
-              pages={searchData.pages}
-            />
-            <PageSizeChanger />
-          </div>
-        </div>
-      )}
+        )}
       {searchDataIsFetching && (
         <div
           style={{ height: `calc(100vh - 350px)` }}
           className="flex items-center justify-center"
         >
           <Loader />
+        </div>
+      )}
+      {isError && (
+        <div
+          style={{ height: `calc(100vh - 350px)` }}
+          className="flex items-center justify-center"
+        >
+          <p className="text-2xl text-amber-600">
+            Ошибка получения данных от сервера
+          </p>
         </div>
       )}
     </>

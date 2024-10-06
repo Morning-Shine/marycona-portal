@@ -1,10 +1,8 @@
 import { AUTH_NOTIFICATIONS } from 'constants/enums';
 import { Dispatch, SetStateAction } from 'react';
 
-// TODO
 export type TAuthFormProps = {
   path: string;
-  //   path: '/login' | '/signup'
 };
 
 export type TAuthFormValues = {

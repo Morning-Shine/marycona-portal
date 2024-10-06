@@ -23,13 +23,15 @@ const MoviesCont: React.FC<TMoviesCont> = ({ genreFilter }) => {
   params.append('limit', pageSize);
   if (genreFilter) params.append('genres.name', genreFilter);
 
-  const { data: mainData, isFetching: mainDataIsFetching } = useGetMoviesQuery(
-    params.toString()
-  );
+  const {
+    data: mainData,
+    isFetching: mainDataIsFetching,
+    isError,
+  } = useGetMoviesQuery(params.toString());
 
   return (
     <>
-      {!mainDataIsFetching && !!mainData?.moviesList?.length && (
+      {!isError&&!mainDataIsFetching && !!mainData?.moviesList?.length && (
         <div className="grid grid-cols-1 grid-rows-[1fr_112px]">
           <div
             style={{ height: `calc(100vh - 350px)` }}
@@ -59,6 +61,14 @@ const MoviesCont: React.FC<TMoviesCont> = ({ genreFilter }) => {
           className="flex items-center justify-center"
         >
           <Loader />
+        </div>
+      )}
+       {isError && (
+        <div
+          style={{ height: `calc(100vh - 350px)` }}
+          className="flex items-center justify-center"
+        >
+          <p className='text-2xl text-amber-600'>Ошибка получения данных от сервера</p>
         </div>
       )}
     </>

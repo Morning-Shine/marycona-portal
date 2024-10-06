@@ -9,7 +9,7 @@ import Loader from 'components/loader';
 const About: React.FC = () => {
   const { id = '' } = useParams();
 
-  const { data, isLoading } = useGetMovieByIdQuery(id, {
+  const { data, isLoading, isError } = useGetMovieByIdQuery(id, {
     skip: !id,
   });
   // console.log(data);
@@ -33,7 +33,7 @@ const About: React.FC = () => {
   //TODO добавить еще инфо о фильме
   return (
     <>
-      {!isLoading && !!data && (
+      {!isError&&!isLoading && !!data && (
         <div
           className={`grid grid-rows-1 grid-cols-[320px_1fr]
                       xl:grid-cols-[320px_1fr_1fr] gap-3`}
@@ -104,6 +104,14 @@ const About: React.FC = () => {
           className="flex items-center justify-center"
         >
           <Loader />
+        </div>
+      )}
+       {isError && (
+        <div
+          style={{ height: `calc(100vh - 350px)` }}
+          className="flex items-center justify-center"
+        >
+          <p className='text-2xl text-amber-600'>Ошибка получения данных по фильму с id {id}</p>
         </div>
       )}
     </>

@@ -10,7 +10,6 @@ const MeowingCheckBox: React.FC = () => {
         type="checkbox"
         checked={isShowCat}
         onChange={() => setIsShowCat(!isShowCat)}
-        //TODO заморочиться стилями
         className={`w-5 h-5 cursor-pointer`}
       />
     </>
