@@ -2,8 +2,8 @@ import { Suspense, lazy } from 'react';
 import { TRouteStatic, TRouteDymanic } from './type.routes.constants';
 import PageNotFound from 'pages/404';
 import Loader from 'components/loader';
+import PageMain from 'pages/main';
 
-const PageMain = lazy(() => import('pages/main'));
 const PageFavorite = lazy(() => import('pages/favorite'));
 const PageAuthorization = lazy(() => import('pages/authorization'));
 const PageDetails = lazy(() => import('pages/details'));
@@ -20,9 +20,7 @@ export const STATIC_ROUTES: TRouteStatic[] = [
     name: 'Главная',
     isNeedInMainMenu: true,
     element: (
-      <Suspense fallback={<SuspenseLoader />}>
-        <PageMain />
-      </Suspense>
+      <PageMain />
     ),
     img: (
       <img
