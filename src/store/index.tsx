@@ -16,6 +16,7 @@ import pageNumbersSlice from './pageNumbersSlice';
 import themeSlice from './themeSlice';
 import userSlice from './userSlice';
 import favoriteSlice from './favoriteSlice';
+import { logger } from './middleware/logger';
 
 const persistConfig = {
   key: 'marycona-portal',
@@ -41,7 +42,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(api.middleware),
+    }).concat(api.middleware, logger),
 });
 
 export const persistor = persistStore(store);
