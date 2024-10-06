@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/marycona-portal/static/css/main.4e2096bd.css",
-    "main.js": "/marycona-portal/static/js/main.9cd2bfb5.js",
+    "main.js": "/marycona-portal/static/js/main.cc2e149e.js",
     "static/js/190.29074294.chunk.js": "/marycona-portal/static/js/190.29074294.chunk.js",
     "static/js/533.b8743dde.chunk.js": "/marycona-portal/static/js/533.b8743dde.chunk.js",
     "static/js/744.5617de19.chunk.js": "/marycona-portal/static/js/744.5617de19.chunk.js",
@@ -17,7 +17,7 @@
     "static/media/plug.png": "/marycona-portal/static/media/plug.7afe199294c3b3f4f19a.png",
     "index.html": "/marycona-portal/index.html",
     "main.4e2096bd.css.map": "/marycona-portal/static/css/main.4e2096bd.css.map",
-    "main.9cd2bfb5.js.map": "/marycona-portal/static/js/main.9cd2bfb5.js.map",
+    "main.cc2e149e.js.map": "/marycona-portal/static/js/main.cc2e149e.js.map",
     "190.29074294.chunk.js.map": "/marycona-portal/static/js/190.29074294.chunk.js.map",
     "533.b8743dde.chunk.js.map": "/marycona-portal/static/js/533.b8743dde.chunk.js.map",
     "744.5617de19.chunk.js.map": "/marycona-portal/static/js/744.5617de19.chunk.js.map",
@@ -25,6 +25,6 @@
   },
   "entrypoints": [
     "static/css/main.4e2096bd.css",
-    "static/js/main.9cd2bfb5.js"
+    "static/js/main.cc2e149e.js"
   ]
 }
