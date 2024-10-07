@@ -36,7 +36,7 @@ const About: React.FC = () => {
       {!isError&&!isLoading && !!data && (
         <div
           className={`grid grid-rows-1 grid-cols-[320px_1fr]
-                      xl:grid-cols-[320px_1fr_1fr] gap-3`}
+                      xl:grid-cols-[320px_1fr_1fr] gap-3 h-[75vh] overflow-y-auto`}
         >
           <div className="flex flex-col h-full">
             <h2 className="my-3 text-2xl font-bold text-amber-600 dark:text-amber-500">
