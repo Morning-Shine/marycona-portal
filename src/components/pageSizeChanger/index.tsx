@@ -2,11 +2,13 @@ import React from 'react';
 import { useAppDispatch, useAppSelector } from 'utils/hooks/useRedux';
 import { PAGE_SIZES } from 'constants/enums';
 import { changeMainPageSize } from 'store/pageSizesSlice';
+import { changeMainPageNumber } from 'store/pageNumbersSlice';
 
-const PageSizeChanger: React.FC = (props) => {
-  const pageSize = useAppSelector((state) =>
-    state.pageSizes.mainPageSize.toString()
+const PageSizeChanger: React.FC = () => {
+  const pageSize = useAppSelector(
+    (state) => state.pageSizes.mainPageSize //.toString()
   );
+ 
   const dispatch = useAppDispatch();
 
   const handlePageChange = (direction: 'prev' | 'next'): void => {
@@ -20,6 +22,9 @@ const PageSizeChanger: React.FC = (props) => {
         currentPage = PAGE_SIZES[currentPageIndex + 1];
     }
     if (!currentPage) return;
+    if (currentPage > pageSize) {
+      dispatch(changeMainPageNumber(1));
+    }
     dispatch(changeMainPageSize(currentPage));
   };
 
