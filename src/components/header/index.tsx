@@ -4,11 +4,11 @@ import MainMenu from 'components/mainMenu';
 const Header: React.FC = () => {
   return (
     <header
-      className={`flex justify-between items-center
+      className={`flex gap-x-10 lg:justify-between lg:items-center
                 bg-slate-200 dark:bg-slate-950
      `}
     >
-      <div className="w-20 h-20 m-3">
+      <div className="m-3">
         <Logo />
       </div>
       <MainMenu />

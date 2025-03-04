@@ -15,7 +15,7 @@ const Button: React.FC<TButton> = ({ type, func, size, name, className }) => {
       style = 'h-12 w-52';
       break;
   }
-  const onClick = !!func ? () => func() : undefined;
+  const onClick = func ? () => func() : undefined;
   return (
     <button
       type={type}

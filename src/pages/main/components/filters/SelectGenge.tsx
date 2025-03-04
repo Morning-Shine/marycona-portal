@@ -17,7 +17,7 @@ const SelectGenge: React.FC<TSelectGenge> = ({
   };
 
   return (
-    <div className="h-14 w-1/4 flex flex-col justify-between">
+    <div className="h-14 lg:w-1/2 flex flex-col justify-between">
       <h6 className="text-sm font-bold truncate text-amber-600 dark:text-amber-500">
         Фильтр по жанру
       </h6>
@@ -46,7 +46,7 @@ const SelectGenge: React.FC<TSelectGenge> = ({
             загружаю варианты...
           </option>
         )}
-          {isError && (
+        {isError && (
           <option
             disabled
             value=""
@@ -55,7 +55,9 @@ const SelectGenge: React.FC<TSelectGenge> = ({
             невозможно подгрузить, воспользуйтесь поиском
           </option>
         )}
-        {!isError&&!isLoading && !!data?.length &&
+        {!isError &&
+          !isLoading &&
+          data?.length &&
           data.map((genre) => (
             <option
               key={genre.slug}

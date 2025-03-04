@@ -25,7 +25,7 @@ const Like: React.FC<TLike> = ({ movieInfo }) => {
       alt="heart"
       onClick={(e) => {
         e.preventDefault();
-        !!user
+        user
           ? isLiked
             ? dispatch(deleteMovie({ user, movieId: movieInfo.id }))
             : dispatch(addMovie({ user, movie: movieInfo }))

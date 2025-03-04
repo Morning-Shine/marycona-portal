@@ -15,7 +15,7 @@ export const favoriteSlice = createSlice({
   reducers: {
     addMovie: (state, action: PayloadAction<TFavoriteSliceActionAddMovie>) => {
       const user = action.payload.user;
-      !!state?.movies?.[user]
+      state?.movies?.[user]
         ? state.movies[user].push(action.payload.movie)
         : (state.movies![user] = [action.payload.movie]);
     },

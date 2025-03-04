@@ -29,7 +29,7 @@ const SearchMoviesCont: React.FC<TSearchMoviesCont> = ({ searchInput }) => {
     <>
       {!isError &&
         !searchDataIsFetching &&
-        !!searchData?.moviesList?.length && (
+        searchData?.moviesList?.length && (
           <div className="grid grid-cols-1 grid-rows-[1fr_112px]">
             <div
               style={{ height: `calc(100vh - 350px)` }}

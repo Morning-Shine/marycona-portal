@@ -11,7 +11,7 @@ const Search: React.FC<TSearch> = ({ setSearchInput }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchInput]);
   return (
-    <div className="h-14 w-1/4 flex flex-col justify-between">
+    <div className="h-14 lg:w-1/2 flex flex-col justify-between">
       <h6 className="text-sm font-bold truncate text-amber-600 dark:text-amber-500">
         Поиск по названию
       </h6>

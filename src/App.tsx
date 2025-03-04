@@ -13,8 +13,7 @@ function App() {
   return (
     <ShowCatContext.Provider value={{ isShowCat, setIsShowCat }}>
       <div
-        //TODO если добавлять адаптив, убрать min-w
-        className={`h-screen max-h-screen min-w-[940px]
+        className={`h-screen max-h-screen 
           grid grid-cols-1 grid-rows-[96px_1fr_44px]
         dark:bg-slate-800 text-slate-950 dark:text-slate-50`}
       >

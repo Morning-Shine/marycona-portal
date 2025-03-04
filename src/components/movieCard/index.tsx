@@ -49,7 +49,7 @@ const MovieCard: React.FC<TMovieCard> = ({ movieInfo }) => {
       <h3 className="font-bold text-sm">{name}</h3>
       <p>
         {countries?.map((c) => `${c.name}, `)}
-        <span className="text-md">{!!year ? year : ENUMS.noYear}</span>
+        <span className="text-md">{year ? year : ENUMS.noYear}</span>
       </p>
     </Link>
   );

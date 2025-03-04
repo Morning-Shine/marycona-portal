@@ -31,7 +31,7 @@ const FormFields: React.FC<TAuthFormProps> = ({ path }) => {
         name={field.id}
         type={field.id.toLowerCase().includes('password') ? 'password' : 'text'}
         className={
-          !!user ? `${styleField} opacity-50 cursor-not-allowed` : styleField
+          user ? `${styleField} opacity-50 cursor-not-allowed` : styleField
         }
       />
       {errors?.[field.id as keyof typeof errors] &&

@@ -9,7 +9,7 @@ export const movieApi = api.injectEndpoints({
   endpoints: (build) => ({
     getMovies: build.query({
       query: (params) => ({
-        url: !!params ? `/v1.4/movie?${params}` : '/v1.4/movie',
+        url: params ? `/v1.4/movie?${params}` : '/v1.4/movie',
         method: 'GET',
       }),
       transformResponse: (
@@ -37,7 +37,7 @@ export const movieApi = api.injectEndpoints({
     }),
     getMoviesWithSearch: build.query({
       query: (params) => ({
-        url: !!params ? `/v1.4/movie/search?${params}` : '/v1.4/movie/search',
+        url: params ? `/v1.4/movie/search?${params}` : '/v1.4/movie/search',
         method: 'GET',
       }),
       transformResponse: (
@@ -68,7 +68,7 @@ export const movieApi = api.injectEndpoints({
       string
     >({
       query: (params) => ({
-        url: !!params
+        url: params
           ? `/v1/movie/possible-values-by-field?${params}`
           : '/v1/movie/possible-values-by-field',
         method: 'GET',

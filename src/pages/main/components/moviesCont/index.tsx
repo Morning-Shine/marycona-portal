@@ -31,7 +31,7 @@ const MoviesCont: React.FC<TMoviesCont> = ({ genreFilter }) => {
 
   return (
     <>
-      {!isError&&!mainDataIsFetching && !!mainData?.moviesList?.length && (
+      {!isError&&!mainDataIsFetching && mainData?.moviesList?.length && (
         <div className="grid grid-cols-1 grid-rows-[1fr_112px]">
           <div
             style={{ height: `calc(100vh - 350px)` }}

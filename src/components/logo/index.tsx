@@ -6,12 +6,11 @@ import React from 'react';
 const Logo: React.FC = () => {
   return (
     <Link to={STATIC_ROUTES[0].path}
-    className="h-full min-h-16 min-w-16 aspect-square"
     >
       <img
         src={logo}
         alt="logo"
-        className="h-full aspect-square"
+        className="h-16 lg:h-20 aspect-square"
       />
     </Link>
   );

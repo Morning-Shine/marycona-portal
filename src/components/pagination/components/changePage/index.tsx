@@ -15,7 +15,7 @@ const ChangePage: React.FC<TPaginationComponents> = ({
   const dispatch = useAppDispatch();
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!!e.target.value) {
+    if (e.target.value) {
       const val = +e.target.value;
       val > 0 && val <= pages
         ? setCurrentPageNumber(val)

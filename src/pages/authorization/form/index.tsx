@@ -105,7 +105,7 @@ const AuthForm = forwardRef(
                   className={`rounded-md text-xl
                   bg-lime-400 dark:bg-lime-600
                   ${
-                    !!user
+                    user
                       ? 'opacity-50 cursor-not-allowed'
                       : 'hover:bg-lime-500 hover:dark:bg-lime-500'
                   }

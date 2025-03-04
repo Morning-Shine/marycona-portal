@@ -33,7 +33,7 @@ const About: React.FC = () => {
   //TODO добавить еще инфо о фильме
   return (
     <>
-      {!isError&&!isLoading && !!data && (
+      {!isError&&!isLoading && data && (
         <div
           className={`grid grid-rows-1 grid-cols-[320px_1fr]
                       xl:grid-cols-[320px_1fr_1fr] gap-3 h-[75vh] overflow-y-auto`}
@@ -65,7 +65,7 @@ const About: React.FC = () => {
               </div>
             </div>
             <p className="text-sm text-justify">{shortDescription}</p>
-            {!!persons && !!persons.length && (
+            {persons && persons.length && (
               <div className="mt-2 text-xs">
                 <b>В ролях: </b>
                 {persons.map(
