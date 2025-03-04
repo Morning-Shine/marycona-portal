@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/marycona-portal/static/css/main.f8a081f2.css",
-    "main.js": "/marycona-portal/static/js/main.92d20005.js",
+    "main.css": "/marycona-portal/static/css/main.774b5c5d.css",
+    "main.js": "/marycona-portal/static/js/main.932ba78e.js",
     "static/js/190.8252f083.chunk.js": "/marycona-portal/static/js/190.8252f083.chunk.js",
     "static/js/533.b8743dde.chunk.js": "/marycona-portal/static/js/533.b8743dde.chunk.js",
-    "static/js/744.4ed8e452.chunk.js": "/marycona-portal/static/js/744.4ed8e452.chunk.js",
+    "static/js/744.708264fb.chunk.js": "/marycona-portal/static/js/744.708264fb.chunk.js",
     "static/js/150.b9dba754.chunk.js": "/marycona-portal/static/js/150.b9dba754.chunk.js",
     "static/media/sun.png": "/marycona-portal/static/media/sun.4938f9ecaaa49fffc668.png",
     "static/media/meowing.gif": "/marycona-portal/static/media/meowing.c26c15c6724d61f0c670.gif",
@@ -16,15 +16,15 @@
     "static/media/favorite.png": "/marycona-portal/static/media/favorite.bc6958e32e569dcf6c9f.png",
     "static/media/plug.png": "/marycona-portal/static/media/plug.7afe199294c3b3f4f19a.png",
     "index.html": "/marycona-portal/index.html",
-    "main.f8a081f2.css.map": "/marycona-portal/static/css/main.f8a081f2.css.map",
-    "main.92d20005.js.map": "/marycona-portal/static/js/main.92d20005.js.map",
+    "main.774b5c5d.css.map": "/marycona-portal/static/css/main.774b5c5d.css.map",
+    "main.932ba78e.js.map": "/marycona-portal/static/js/main.932ba78e.js.map",
     "190.8252f083.chunk.js.map": "/marycona-portal/static/js/190.8252f083.chunk.js.map",
     "533.b8743dde.chunk.js.map": "/marycona-portal/static/js/533.b8743dde.chunk.js.map",
-    "744.4ed8e452.chunk.js.map": "/marycona-portal/static/js/744.4ed8e452.chunk.js.map",
+    "744.708264fb.chunk.js.map": "/marycona-portal/static/js/744.708264fb.chunk.js.map",
     "150.b9dba754.chunk.js.map": "/marycona-portal/static/js/150.b9dba754.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f8a081f2.css",
-    "static/js/main.92d20005.js"
+    "static/css/main.774b5c5d.css",
+    "static/js/main.932ba78e.js"
   ]
 }
